@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Смартлаб — Навчальні тести 2026</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══ ГОЛОВНЕ МЕНЮ ══════════════════════════════════════ -->
+  <div id="screen-home" class="screen active">
+    <div class="home-inner">
+      <div class="home-header">
+        <div class="logo-badge">Smartlab 2026</div>
+        <h1>Навчальні<br>тести</h1>
+        <p class="subtitle">Оберіть розділ для підготовки</p>
+      </div>
+      <div class="test-grid" id="test-grid">
+        <!-- картки генеруються JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ЕКРАН ВИБОРУ КІЛЬКОСТІ ════════════════════════════ -->
+  <div id="screen-setup" class="screen">
+    <div class="setup-inner">
+      <button class="btn-back" id="btn-back-setup">← Назад</button>
+      <div class="setup-icon" id="setup-icon"></div>
+      <h2 id="setup-title"></h2>
+      <p class="setup-desc" id="setup-desc"></p>
+      <div class="setup-info" id="setup-info"></div>
+      <div class="settings-row">
+        <label>Кількість питань:</label>
+        <div class="select-wrap">
+          <select id="q-count">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="30">30</option>
+            <option value="all">Всі</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-primary" id="btn-start-quiz">Почати тест →</button>
+    </div>
+  </div>
+
+  <!-- ══ ЕКРАН ТЕСТУ ═══════════════════════════════════════ -->
+  <div id="screen-quiz" class="screen">
+    <div class="quiz-header">
+      <button class="btn-back-sm" id="btn-exit-quiz" title="Вийти">✕</button>
+      <div class="progress-info">
+        <span id="q-current">1</span> / <span id="q-total">20</span>
+      </div>
+      <div class="score-live">
+        <span class="dot green-dot"></span><span id="live-correct">0</span>
+        <span class="dot red-dot"></span><span id="live-wrong">0</span>
+      </div>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <div class="quiz-body">
+      <div class="q-category" id="q-category"></div>
+      <p class="question-text" id="q-text"></p>
+      <div class="options-list" id="options-list"></div>
+      <div class="feedback-row" id="feedback-row"></div>
+      <button class="btn-next" id="btn-next" style="display:none">Далі →</button>
+    </div>
+  </div>
+
+  <!-- ══ ЕКРАН РЕЗУЛЬТАТІВ ══════════════════════════════════ -->
+  <div id="screen-result" class="screen">
+    <div class="result-inner">
+      <button class="btn-back" id="btn-back-result">← Меню</button>
+      <div class="result-circle" id="result-circle">
+        <span class="result-pct" id="result-pct"></span>
+        <span class="result-label">результат</span>
+      </div>
+      <p class="result-title" id="result-title"></p>
+      <p class="result-msg" id="result-msg"></p>
+      <div class="result-stats">
+        <div class="r-stat"><span class="r-val green" id="r-correct"></span><span class="r-lbl">Правильних</span></div>
+        <div class="r-stat"><span class="r-val red"   id="r-wrong"></span><span class="r-lbl">Неправильних</span></div>
+        <div class="r-stat"><span class="r-val"       id="r-total"></span><span class="r-lbl">Всього</span></div>
+      </div>
+      <div class="result-actions">
+        <button class="btn-primary" id="btn-restart">↺ Ще раз</button>
+        <button class="btn-secondary" id="btn-home">На головну</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
